@@ -1,16 +1,33 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    display: flex;
-    width: 100%;
     height: 100vh;
-    align-items: center;
+`
+
+export const Header = styled.div`
+    width: 100%;
+    height: 100px;
+    display: flex;
     justify-content: center;
+    align-items: center;
+`
+
+export const FinishedContent = styled.div`
+    display: flex;
+    gap: 20px;
+    padding: 0px 20px;
 `
 
 export const Title = styled.div`
     font-weight: bold;
-    width: 700px;
+    max-width: 700px;
+    font-size: 22px;
+`;
+
+export const SubTitle = styled.div`
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 15px;
 `;
 
 export const Progress = styled.div`

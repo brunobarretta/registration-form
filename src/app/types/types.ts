@@ -13,13 +13,25 @@ export interface FormState {
   cidade: string;
   endereco: string;
   numero: string;
+  pix?: boolean,
+  credito?: boolean,
+  boleto?: boolean,
+  multa?: boolean,
+  valorMulta?: string,
+  juros?: boolean
 }
   
 export const UPDATE_FORM_DATA = 'UPDATE_FORM_DATA';
+export const COMPLETE_FORM = 'COMPLETE_FORM';
 
 export interface UpdateFormDataAction {
   type: typeof UPDATE_FORM_DATA; 
   payload: FormState;
 }
 
-export type FormActionTypes = UpdateFormDataAction;
+export interface CompleteFormAction {
+  type: typeof COMPLETE_FORM;
+  payload: FormState;
+}
+
+export type FormActionTypes = UpdateFormDataAction | CompleteFormAction;

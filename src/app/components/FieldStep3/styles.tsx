@@ -8,28 +8,23 @@ export const FormContainer = styled.form`
   gap: 1rem;
 `;
 
-export const Warning = styled.div`
-  background-color: #FFFAD6; 
+export const SubTitle = styled.div`
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 5px;
+`;
+
+export const Info = styled.div`
+  background-color: #ECF5FE; 
   border-radius: 5px;
   padding: 10px; 
 `;
 
-export const TitleWarning = styled.div`
-  color: #CCB400;
-  font-weight: 700;
-  font-size: 14px;
-  margin-bottom: 10px; 
-`
-
-export const WarningUl = styled.ul`
-  margin-left: 30px;
-`;
-
-export const WarningLi = styled.li`
-  color: #CCB400;
+export const MessageInfo = styled.div`
+  color: #2196F3;
   font-weight: 400;
   font-size: 14px;
-`
+`;
 
 export const Label = styled.label`
   display: flex;
@@ -62,8 +57,7 @@ export const Row = styled.div`
 `;
 
 export const FlexItem = styled.div`
-  flex: 1;
-  min-width: 200px;
+  max-width: 150px;
 `;
 
 export const Button = styled.button`
@@ -91,3 +85,30 @@ export const CancelButton = styled.button`
     background-color: #e7e4e4;
   }
 `;
+
+export const CheckboxContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const CheckboxLabel = styled.label`
+  display: flex;
+  align-items: center;
+  margin: 10px 0px
+`;
+
+export const CheckboxInput = styled.input`
+  margin-right: 0.5rem;
+`;
+
+export const CheckboxTitle = styled.div`
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  font-size: 14px;
+`;
+
+export const Divider = styled.div`
+  width: 100%;
+  height: 2px; 
+  background-color: #ccc; 
+`
