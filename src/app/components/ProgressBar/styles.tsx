@@ -28,13 +28,14 @@ export const TitleStep = styled.div<TitleStepProps>`
   display: flex;
   position: fixed;
   top: 30px;
-  left: 0px;
   font-size: 11px;
-  min-width: 120px;
+  width: 120px;
   font-weight: ${(props) => (props.currently || props.finished ) ? 'bold' : '400'};
   color: ${props => props.currently ? 'black' : props.finished ? '#2797BA' : 'rgba(211, 211, 211, 0.8)'};
+  justify-content: center;
+  text-align: center;
 
   @media screen and (max-width: 768px) {
-    display: none; 
+    width: 100px;
   }
 `;

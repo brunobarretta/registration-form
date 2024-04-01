@@ -92,6 +92,7 @@ const FieldStep1: React.FC<FieldStep1Props> = ({ onNext, onClose, setErrors }) =
           <Label>
             Banco: *
             <Select {...register('banco')} hasError={!!errors.banco}>
+              <option value="" disabled selected>--Selecione--</option>
               <option value="banco1">Banco do Brasil</option>
               <option value="banco2">Bradesco</option>
               <option value="banco3">Caixa Econômica</option>
@@ -105,6 +106,7 @@ const FieldStep1: React.FC<FieldStep1Props> = ({ onNext, onClose, setErrors }) =
           <Label>
             Tipo de conta: *
             <Select {...register('tipoConta')} hasError={!!errors.tipoConta}>
+              <option value="" disabled selected>--Selecione--</option>
               <option value="conta1">Conta corrente</option>
               <option value="conta2">Poupança</option>
             </Select>
@@ -115,13 +117,13 @@ const FieldStep1: React.FC<FieldStep1Props> = ({ onNext, onClose, setErrors }) =
         <FlexItem>
         <Label>
             Agência: *
-            <Input type="number" {...register('agencia')} hasError={!!errors.agencia} />
+            <Input type="number" placeholder='Digite aqui' {...register('agencia')} hasError={!!errors.agencia} />
           </Label>
         </FlexItem>
         <FlexItem>
           <Label>
             Conta com dígito: *
-            <Input type="number" {...register('contaComDigito')} hasError={!!errors.contaComDigito}  />
+            <Input type="number" placeholder='Digite aqui' {...register('contaComDigito')} hasError={!!errors.contaComDigito}  />
           </Label>
         </FlexItem>
       </Row>
@@ -130,6 +132,7 @@ const FieldStep1: React.FC<FieldStep1Props> = ({ onNext, onClose, setErrors }) =
           <Label>
             Tipo de pessoa: *
             <Select {...register('tipoPessoa')} hasError={!!errors.tipoPessoa}>
+              <option value="" disabled selected>--Selecione--</option>
               <option value="cpf">CPF</option>
               <option value="cnpj">CNPJ</option>
             </Select>
@@ -154,7 +157,7 @@ const FieldStep1: React.FC<FieldStep1Props> = ({ onNext, onClose, setErrors }) =
       </Row>
       <Label>
         Nome completo: *
-        <Input type="text" {...register('nomeCompleto')} hasError={!!errors.contaComDigito}  />
+        <Input type="text" placeholder='Digite aqui' {...register('nomeCompleto')} hasError={!!errors.contaComDigito}  />
       </Label>
       <Row>
         <FlexItem>
@@ -167,6 +170,7 @@ const FieldStep1: React.FC<FieldStep1Props> = ({ onNext, onClose, setErrors }) =
           <Label>
             Estado: *
             <Select {...register('estado')} hasError={!!errors.estado}>
+              <option value="" disabled selected>--Selecione--</option>
               <option value="AC">Acre</option>
               <option value="AL">Alagoas</option>
               <option value="AP">Amapá</option>
@@ -200,7 +204,7 @@ const FieldStep1: React.FC<FieldStep1Props> = ({ onNext, onClose, setErrors }) =
         <FlexItem>
           <Label>
             Cidade: *
-            <Input type="text" {...register('cidade')} hasError={!!errors.cidade}  />
+            <Input type="text" placeholder='Digite aqui' {...register('cidade')} hasError={!!errors.cidade}  />
           </Label>
         </FlexItem>
       </Row>
@@ -208,13 +212,13 @@ const FieldStep1: React.FC<FieldStep1Props> = ({ onNext, onClose, setErrors }) =
         <FlexItem>
           <Label>
             Endereço: *
-            <Input type="text" {...register('endereco')} hasError={!!errors.endereco} />
+            <Input type="text" placeholder='Digite aqui' {...register('endereco')} hasError={!!errors.endereco} />
           </Label>
         </FlexItem>
         <FlexItem>
           <Label>
             Número: *
-            <Input type="number" {...register('numero')} hasError={!!errors.numero}  />
+            <Input type="number" placeholder='Digite aqui' {...register('numero')} hasError={!!errors.numero}  />
           </Label>
         </FlexItem>
       </Row>

@@ -1,4 +1,4 @@
-export interface FormState {
+export interface FormProps {
   profissional: string;
   banco: string;
   tipoConta: string;
@@ -13,6 +13,8 @@ export interface FormState {
   cidade: string;
   endereco: string;
   numero: string;
+  marcacaoDinamica?: string,
+  mensagemEmail?: string,
   pix?: boolean,
   credito?: boolean,
   boleto?: boolean,
@@ -26,12 +28,12 @@ export const COMPLETE_FORM = 'COMPLETE_FORM';
 
 export interface UpdateFormDataAction {
   type: typeof UPDATE_FORM_DATA; 
-  payload: FormState;
+  payload: FormProps;
 }
 
 export interface CompleteFormAction {
   type: typeof COMPLETE_FORM;
-  payload: FormState;
+  payload: FormProps;
 }
 
 export type FormActionTypes = UpdateFormDataAction | CompleteFormAction;

@@ -27,26 +27,28 @@ export const MessageInfo = styled.div`
 `;
 
 export const Label = styled.label`
+  gap: 4px;
   display: flex;
   flex-direction: column;
 `;
 
 export const Input = styled.input<{ hasError: boolean }>`
-  padding: 0.5rem;
-  border-radius: 0.5rem;
+  height: 32px;
+  padding: 4px 16px 4px 16px;
   border: 1px solid ${({ hasError }) => (hasError ? 'red' : '#ccc')};
 `;
 
 export const InputMasked = styled(InputMask)<{ hasError: boolean }>`
-  padding: 0.5rem;
-  border-radius: 0.5rem;
+  height: 32px;
+  padding: 4px 16px 4px 16px;
   border: 1px solid ${({ hasError }) => (hasError ? 'red' : '#ccc')};
 `;
 
 export const Select = styled.select<{ hasError: boolean }>`
-  padding: 0.5rem;
-  border-radius: 0.5rem;
+  height: 32px;
+  padding: 4px 16px 4px 16px;
   border: 1px solid ${({ hasError }) => (hasError ? 'red' : '#ccc')};
+  background-color: ${({ disabled }) => (disabled ? '#CCD1D3' : 'white')};
 `;
 
 export const Row = styled.div`
@@ -61,28 +63,31 @@ export const FlexItem = styled.div`
 `;
 
 export const Button = styled.button`
-  padding: 0.5rem 1rem;
+  padding: 4px 32px 4px 32px;
+  height: 32px;
   background-color: #2797BA;
   color: #fff;
   border: none;
-  border-radius: 0.5rem;
+  border-radius: 4px;
   cursor: pointer;
 
   &:hover {
-    background-color: #1f7d99;
+    background-color: #207C97;
   }
 `;
 
 export const CancelButton = styled.button`
-  padding: 0.5rem 1rem;
+  padding: 4px 32px 4px 32px;
+  height: 32px;
   background-color: white;
-  color: #8a8a8a;
-  border: 1px solid #8a8a8a;;
-  border-radius: 0.5rem;
+  color: #7D8C94;
+  border: 1px solid #7D8C94;;
+  border-radius: 4px;
   cursor: pointer;
 
   &:hover {
-    background-color: #e7e4e4;
+    color: #3D3D3D;
+    border: 1px solid #3D3D3D;
   }
 `;
 
@@ -109,6 +114,6 @@ export const CheckboxTitle = styled.div`
 
 export const Divider = styled.div`
   width: 100%;
-  height: 2px; 
+  height: 1px; 
   background-color: #ccc; 
 `

@@ -24,15 +24,18 @@ const ProgressBarComponent: React.FC<{ currentStep: number, totalSteps: number }
             <IndexedStep accomplished={index < currentStep}>
               {index + 1}
             </IndexedStep>
-            <TitleStep currently={(index + 1) === currentStep} finished={(index + 1) < currentStep}>Cadastrar uma conta</TitleStep>
+            <TitleStep currently={(index + 1) === currentStep} finished={(index + 1) < currentStep}>Canais de envio e Mensagem de cobrança</TitleStep>
           </>
         )}
       </Step>
       <Step>
         {({ index }) => (
-          <IndexedStep accomplished={index < currentStep}>
-            {index + 1}
-          </IndexedStep>
+          <>
+            <IndexedStep accomplished={index < currentStep}>
+              {index + 1}
+            </IndexedStep>
+            <TitleStep currently={(index + 1) === currentStep} finished={(index + 1) < currentStep}>Forma de pagamento de cobrança</TitleStep>
+          </>
         )}
       </Step>
     </ProgressBar>

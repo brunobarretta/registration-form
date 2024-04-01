@@ -1,7 +1,7 @@
-import { completeForm, updateFormData } from '@/app/actions/formActions';
+import { completeForm } from '@/app/actions/formActions';
 import { zodResolver } from '@hookform/resolvers/zod';
 import React, { useEffect } from 'react';
-import { useForm } from 'react-hook-form';
+import { FieldErrors, useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { string, z } from 'zod';
 import { Button, CancelButton, CheckboxContainer, CheckboxInput, CheckboxLabel, CheckboxTitle, Divider, FlexItem, FormContainer, Info, InputMasked, Label, MessageInfo, Row, Select, SubTitle } from './styles';
@@ -9,20 +9,26 @@ import { Button, CancelButton, CheckboxContainer, CheckboxInput, CheckboxLabel, 
 
 const schema = z.object({
   profissional: z.string(),
-  pix: z.boolean().optional(),
-  credito: z.boolean().optional(),
-  boleto: z.boolean().optional(),
+  pix: z.boolean(),
+  credito: z.boolean(),
+  boleto: z.boolean(),
   multa: z.boolean().optional(),
   valorMulta: string().optional(),
   juros: z.boolean().optional()
-})
+}).refine((data) => {
+  const { pix, credito, boleto } = data;
+  return pix !== false || credito !== false || boleto !== false;
+}, {
+  message: 'Selecione pelo menos uma opção: pix, cartão de crédito ou boleto',
+});
 
 interface FieldStep3Props {
-  onPrevious: () => void;
+  onClose: () => void;
   onFinish: () => void;
+  setErrors: (errors: FieldErrors) => void;
 }
 
-const FieldStep3: React.FC<FieldStep3Props> = ({ onPrevious, onFinish }) => {
+const FieldStep3: React.FC<FieldStep3Props> = ({ onClose, onFinish, setErrors }) => {
   const dispatch = useDispatch();
   const formData = useSelector((state:any) => state.data.form);
   const { register, handleSubmit, setValue, formState: { errors } } = useForm({
@@ -31,12 +37,22 @@ const FieldStep3: React.FC<FieldStep3Props> = ({ onPrevious, onFinish }) => {
 
   useEffect(() => {
     setValue('profissional', formData.profissional);
+    setValue('pix', formData.pix);
+    setValue('credito', formData.credito);
+    setValue('boleto', formData.boleto);
+    setValue('multa', formData.multa);
+    setValue('valorMulta', formData.valorMulta);
+    setValue('juros', formData.juros);
   }, [formData]);
   
   const onSubmit = async (formData: any) => {
     await dispatch(completeForm(formData));
     onFinish();
   };
+
+  useEffect(() => {
+    setErrors(errors)
+  }, [errors])
 
   return (
     <FormContainer onSubmit={handleSubmit(onSubmit)}>
@@ -88,8 +104,8 @@ const FieldStep3: React.FC<FieldStep3Props> = ({ onPrevious, onFinish }) => {
       </CheckboxLabel>
     </CheckboxContainer>
     <Row>
-      <CancelButton onClick={onPrevious}>Cancelar</CancelButton>
-      <Button type="submit">Próximo</Button>
+      <CancelButton onClick={onClose}>Cancelar</CancelButton>
+      <Button type="submit">Concluir</Button>
     </Row>
   </FormContainer>
   );

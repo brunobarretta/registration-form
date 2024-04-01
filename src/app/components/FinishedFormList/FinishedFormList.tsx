@@ -1,9 +1,9 @@
 import React from 'react';
 import { AnswerItem, AnswerList, Card, Title } from './styles';
-import { FormState } from '@/app/types/types';
+import { FormProps } from '@/app/types/types';
 
 interface FinishedFormsListProps {
-  finishedForms: FormState[];
+  finishedForms: FormProps[];
 }
 
 const FinishedFormsList = ({ finishedForms }:FinishedFormsListProps) => {
@@ -27,6 +27,8 @@ const FinishedFormsList = ({ finishedForms }:FinishedFormsListProps) => {
               <AnswerItem>Cidade: {form.cidade}</AnswerItem>
               <AnswerItem>Endereço: {form.endereco}</AnswerItem>
               <AnswerItem>Número: {form.numero}</AnswerItem>
+              <AnswerItem>Marcação: {form.marcacaoDinamica}</AnswerItem>
+              <AnswerItem>Mensagem e-mail: {form.mensagemEmail}</AnswerItem>
               <AnswerItem>Pix: {form.pix ? 'Sim' : 'Não'}</AnswerItem>
               <AnswerItem>Crédito: {form.credito ? 'Sim' : 'Não'}</AnswerItem>
               <AnswerItem>Boleto: {form.boleto ? 'Sim' : 'Não'}</AnswerItem>

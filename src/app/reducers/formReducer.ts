@@ -1,26 +1,28 @@
-import { FormActionTypes, FormState } from "../types/types";
+import { FormActionTypes, FormProps } from "../types/types";
 
 export interface RootState {
-  form: FormState;
-  finishedForms: FormState[];
+  form: FormProps;
+  finishedForms: FormProps[];
 }
 
 const initialState: RootState = {
   form: {
     profissional: 'profissional1',
-    banco: 'banco1',
-    tipoConta: 'conta1',
-    agencia: '123',
-    contaComDigito: '123',
+    banco: '',
+    tipoConta: '',
+    agencia: '',
+    contaComDigito: '',
     tipoPessoa: 'cpf',
-    documento: '43066155889',
-    telefone: '11999885533',
-    nomeCompleto: 'sasa',
-    cep: '12345678',
-    estado: 'SP',
-    cidade: 'sasa',
-    endereco: 'fff',
-    numero: '123',
+    documento: '',
+    telefone: '',
+    nomeCompleto: '',
+    cep: '',
+    estado: '',
+    cidade: '',
+    endereco: '',
+    numero: '',
+    marcacaoDinamica: '',
+    mensagemEmail: '',
     pix: false,
     credito: false,
     boleto: false,
@@ -42,15 +44,14 @@ const formReducer = (state = initialState, action: FormActionTypes): RootState =
 
     case 'COMPLETE_FORM':
 
-      console.log(state.form)
-      console.log(action.payload)
-      const combinedForm: FormState = {
+      const combinedForm: FormProps = {
         ...state.form,
         ...action.payload,       
       };
       
       return {
         ...state,
+        form: initialState.form,
         finishedForms: [...state.finishedForms, combinedForm],
       };
 

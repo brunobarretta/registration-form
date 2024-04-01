@@ -22,19 +22,20 @@ const FormModal = () => {
   const onNextStep = () => setCurrentStep(currentStep + 1);
   const onPreviousStep = () => setCurrentStep(currentStep - 1);
   const onCloseModal = () => {
-    setOpen(false);
-  };
-  const onFinishModal = () => {
     setCurrentStep(1);
     setOpen(false);
   };
+
   const onOpenModal = () => setOpen(true);
 
   const checkErrors = (errors:FieldErrors) => {
     const errorsLength = Object.entries(errors).length;
 
+    console.log(errors)
+    const message= errors[""]?.message
+
     if (errorsLength > 0) {
-      toast.error('Atenção: Os campos obrigatórios não foram preenchidos!');
+      toast.error(message ? message.toString() : 'Atenção: Os campos obrigatórios não foram preenchidos!');
     }
   };
 
@@ -43,9 +44,9 @@ const FormModal = () => {
       case 1:
         return <FieldStep1 onNext={onNextStep} onClose={onCloseModal} setErrors={checkErrors} />;
       case 2:
-        return <FieldStep2 onNext={onNextStep} onPrevious={onPreviousStep} />;
+        return <FieldStep2 onNext={onNextStep} onClose={onCloseModal} setErrors={checkErrors} />;
       case 3:
-        return <FieldStep3 onPrevious={onPreviousStep} onFinish={onFinishModal} />;
+        return <FieldStep3 onClose={onCloseModal} onFinish={onCloseModal} setErrors={checkErrors} />;
       default:
         return null;
     }

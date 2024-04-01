@@ -14,25 +14,34 @@ export const Header = styled.div`
 
 export const FinishedContent = styled.div`
     display: flex;
+    flex-wrap: nowrap; 
+    overflow-x: auto;
     gap: 20px;
+    padding: 10px;
+    margin: 0 auto; 
     padding: 0px 20px;
+
+    @media screen and (max-width: 768px) {
+    flex-direction: column;
+  }
 `
 
 export const Title = styled.div`
+    color: #3D3D3D;
     font-weight: bold;
     max-width: 700px;
-    font-size: 22px;
+    font-size: 24px;
 `;
 
 export const SubTitle = styled.div`
+    color: #3D3D3D;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 20px;
     margin-bottom: 15px;
 `;
 
 export const Progress = styled.div`
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin: 20px 40px 40px 40px;
     padding: 20px;
     box-sizing: border-box;
 `;

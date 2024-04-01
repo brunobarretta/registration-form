@@ -10,8 +10,9 @@ export const FormContainer = styled.form`
 
 export const SubTitle = styled.div`
     font-weight: bold;
-    font-size: 18px;
+    font-size: 20px;
     margin-bottom: 5px;
+    color: #4C5153;
 `;
 
 export const Info = styled.div`
@@ -27,14 +28,17 @@ export const MessageInfo = styled.div`
 `;
 
 export const Label = styled.label`
+  width: 100%;
+  gap: 4px;
   display: flex;
   flex-direction: column;
 `;
 
 export const Select = styled.select<{ hasError: boolean }>`
-  padding: 0.5rem;
-  border-radius: 0.5rem;
+  height: 32px;
+  padding: 4px 16px 4px 16px;
   border: 1px solid ${({ hasError }) => (hasError ? 'red' : '#ccc')};
+  background-color: ${({ disabled }) => (disabled ? '#CCD1D3' : 'white')};
 `;
 
 export const Row = styled.div`
@@ -44,28 +48,72 @@ export const Row = styled.div`
   justify-content: end;
 `;
 
+export const Input = styled.input`
+  height: 32px;
+  padding: 4px 16px 4px 16px;
+  border: 1px solid #ccc;
+`;
+
+export const SelectContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+`
+
+export const ButtonContainer = styled.div`
+  display: flex;
+  align-items: end;
+  justify-content: flex-end;
+`
+
 export const Button = styled.button`
-  padding: 0.5rem 1rem;
+  min-width: 133px;
+  padding: 4px 32px 4px 32px;
+  height: 32px;
   background-color: #2797BA;
   color: #fff;
   border: none;
-  border-radius: 0.5rem;
+  border-radius: 4px;
   cursor: pointer;
+  align-items: center;
 
   &:hover {
-    background-color: #1f7d99;
+    background-color: #207C97;
   }
 `;
 
-export const CancelButton = styled.button`
-  padding: 0.5rem 1rem;
+export const ButtonIcon = styled.button`
+  min-width: 133px;
+  padding: 4px 32px 4px 32px;
+  height: 32px;
   background-color: white;
-  color: #8a8a8a;
-  border: 1px solid #8a8a8a;;
-  border-radius: 0.5rem;
+  color: #2797BA;
+  border: 1px solid #2797BA;
+  border-radius: 4px;
+  cursor: pointer;
+  align-items: center;
+
+  &:hover {
+    background-color: #DDF2F8;
+  }
+`;
+
+export const Icon = styled.span`
+  margin-right: 8px;
+  vertical-align: middle;
+`;
+
+export const CancelButton = styled.button`
+  padding: 4px 32px 4px 32px;
+  height: 32px;
+  background-color: white;
+  color: #7D8C94;
+  border: 1px solid #7D8C94;;
+  border-radius: 4px;
   cursor: pointer;
 
   &:hover {
-    background-color: #e7e4e4;
+    color: #3D3D3D;
+    border: 1px solid #3D3D3D;
   }
 `;
