@@ -2,6 +2,15 @@
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Technologies Used
+
+- **Next.js:** For building the web application.
+- **TypeScript:** For static typing and improved development experience.
+- **React Hook Form:** For form management.
+- **Styled Components:** For component styling.
+- **Redux:** For global state management.
+- **Zod:** For field validation.
+
 ## Getting Started
 
 First, run the development server:
@@ -15,15 +24,6 @@ pnpm dev
 # or
 bun dev
 ```
-
-## Technologies Used
-
-- **Next.js:** For building the web application.
-- **TypeScript:** For static typing and improved development experience.
-- **React Hook Form:** For form management.
-- **Styled Components:** For component styling.
-- **Redux:** For global state management.
-- **Zod:** For field validation.
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
